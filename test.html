@@ -1,0 +1,27 @@
+<div class="alert  alerta rounded-pill" role="alert">
+  <h4>Euclidean algorithm and extended Euclidean algorithm</h4>
+</div>
+
+<div class="container">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="span__Alpha">a</span>
+    </div>
+    <input type="number" min="1" id="alpha" class="form-control" placeholder="alpha" aria-label="alpha" aria-describedby="span__Alpha">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="span__Beta">n</span>
+    </div>
+    <input type="number" min="1" id="beta" class="form-control" placeholder="beta" aria-label="beta" aria-describedby="span__Beta">
+  </div>
+
+  <button type="button" onclick="getGCD();" class="btn btn-secondary">Obtain GCD</button>
+  <h3>Result</h3>
+  <div class="container bg-info rounded py-3">
+    <p id="gcd"></p>
+    <p id="expresion"></p>
+    <p id="inverso"></p>
+  </div>
+</div>
