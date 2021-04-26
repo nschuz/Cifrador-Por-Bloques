@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+
+  <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+  <title>Block Cipher</title>
+</head>
+
+<body>
+<!-- NavBar -->
+<nav class="navbar nav-bar">
+  <a class="navbar-brand" href="#">
+    <img src="./img/cryptography1.png" width="35" height="35" class="d-inline-block align-top " alt="">
+    Block Cipher
+  </a>
+</nav>
+
+<!--Container-->
+<div class="container containerM">
+  <div class="alert  alerta2 rounded-pill" role="alert">
+    <h4>DES Algorithm</h4>
+  </div>
+
+  <form method="POST" action="/api/usuarios/upload-pic" enctype="multipart/form-data">
+    <!--select Cipher-->
+    <div class="form-group">
+      <label for="select__cipher">Please Select What do you want to do?</label>
+      <select class="form-control" id="select__cipher" name="select__cipher" onchange="checkOption(this);">
+        <option name="Cipher">Cipher</option>
+        <option name="Decipher">Decipher</option>
+      </select>
+    </div>
+
+    <!--Select   Types of Operation-->
+    <div class="form-group">
+      <label for="select__operation">Please Select a One Type Of Operation</label>
+      <select class="form-control" id="select__operation" name="select__operation" onchange="checkOption(this);">
+        <option value="des-ecb">ECB</option>
+        <option value="des-cbc">CBC</option>
+        <option value="des-cfb">CFB</option>
+        <option value="des-ofb">OFB</option>
+      </select>
+    </div>
+
+    <!--Choose File-->
+    <div class="form-group">
+      <label for="div__file">Please Choose a Image</label>
+      <div class="input-group mb-3">
+        <div class="custom-file" id="div__file">
+          <input type="file" class="custom-file-input" id="input__file" name="input__file" accept="image/bmp" onchange="readURL(this);"/>
+          <label class="custom-file-label" for="input__file">Choose file</label>
+        </div>
+        <div class="input-group-append">
+          <span class="input-group-text" id="">Upload</span>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <!--Seccion donde insertar el texto a cifrar o decifrar. Y en donde insertamos la llave-->
+    <div class="row">
+      <!-- Text Area Public Key Generate -->
+      <div class="col-sm">
+        <div class="form-group ">
+          <div class="texto">
+            <label for="textarea__key">Key DES 8 bytes</label>
+          </div>
+          <textarea class="form-control texto" id="textarea__key" name="key" rows="5" wrap></textarea>
+        </div>
+      </div>
+
+
+      <!-- Text Area Private Key Generate -->
+      <div class="col-sm">
+        <div class="texto">
+          <label for="textarea__iv"> Initialization Vector<span class="text-muted" style="font-size: 0.8rem">(C0 DES 8 bytes)</span></label>
+        </div>
+        <textarea class="form-control texto" id="textarea__iv" name="iv" rows="5"></textarea>
+        <div class="ancla">
+          <input type="submit" class="centrado btn btn-color" value="Upload and submit"/>
+          <!--<button id="button__random--key" class="centrado btn btn-color">Submit</button> -->
+          <!--<a href="#" id="button__random--key" download class="centrado btn btn-color ancla" target="_blank" style="color:black;">
+          <span>Random key</span></a>
+          -->
+          <!--
+          <input type="file" id="fileDecrypt" name="file" />
+          -->
+        </div>
+      </div>
+      <!-- Text Area Public Key Enter -->
+    </div>
+  </form>
+
+  <br>
+
+
+  <!--Alert NUvea seccion -->
+  <div class="alert  alerta" role="alert" id="output">
+    <h4> Output!</h4>
+    <img src="#" alt="" id="img__input">
+    <a href="#" download id="button__download">
+      <img src="#" alt="" id="img__output">
+      <p hidden id="p__download">Click to Download</p>
+    </a>
+  </div>
+
+
+</div>
+
+<footer class="footer footer-mine">
+  <div class="container">
+    <img src="./img/cryptography1.png" alt="Escom logo " width="50" height="50">
+    <span class="span-datos">Regis Valero Jorge Jesus</span>
+    <span class="span-datos">Medina Martinez Miguel Angel</span>
+    <span class="span-datos">Group: 3CM13</span>
+  </div>
+</footer>
+
+
+<script type="text/javascript" src="js/encrypt.js"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>

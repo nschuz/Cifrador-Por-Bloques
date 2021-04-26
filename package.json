@@ -1,0 +1,20 @@
+{
+  "name": "07-RestServer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cryptian": "0.0.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jimp": "^0.16.1",
+    "multer": "^1.4.2"
+  }
+}
